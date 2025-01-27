@@ -29,21 +29,21 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 
 ### **Freelancers**
 #### Get All Freelancers
-http
+```http
 GET /api/freelancers
 
 #### Get Freelancer with ID
-http
+```http
 GET /api/freelancers/{id}
 
 #### search Freelancer with name of email with wildcard
-http
+```http
 GET /api/freelancers/search?term={searchTerm}
 
 #### Insert  Freelancer
 POST /api/freelancers
-- request body:
-json
+- request body:  
+```json
 {
   "username": "john_doe_updated",
   "email": "john_inserted@example.com",
@@ -73,7 +73,6 @@ PUT /api/freelancers/{id}/archive
 #### Unarchive a Freelancer
 PUT /api/freelancers/{id}/unarchive
 
-this one in MD file is not looking good how to fix it
 
 
 
