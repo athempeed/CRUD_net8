@@ -31,44 +31,43 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 #### Get All Freelancers
 ```http
 GET /api/freelancers
-
-#### Get Freelancer with ID
-```http
+Retrieves all freelancers along with their skillsets and hobbies.
+Get Freelancer by ID
+http
+Copy
+Edit
 GET /api/freelancers/{id}
-
-#### search Freelancer with name of email with wildcard
-```http
+Retrieves a freelancer's details by their ID, including skillsets and hobbies.
+Search Freelancers (Wildcard)
+http
+Copy
+Edit
 GET /api/freelancers/search?term={searchTerm}
-
-#### Insert  Freelancer
+Searches for freelancers by username or email using a wildcard search.
+Insert Freelancer
+http
+Copy
+Edit
 POST /api/freelancers
-- request body:
-```json
+Request Body:
+json
+Copy
+Edit
 {
-  "username": "john_doe_updated",
+  "username": "john_doe_inserted",
   "email": "john_inserted@example.com",
   "phoneNumber": "987-654-3210",
   "skillsets": ["Docker", "Kubernetes"],
   "hobbies": ["Traveling", "Hiking"]
 }
-```json
+Update Freelancer
+http
+Copy
+Edit
 
-#### update Freelancer
-PUT /api/freelancers/{id}
-{
-  "username": "john_doe_updated",
-  "email": "john_updated@example.com",
-  "phoneNumber": "987-654-3210",
-  "skillsets": ["Kubernetes"],
-  "hobbies": ["Traveling", "Hiking"]
-}
-```json
 
-#### Delete Freelancer
-DELETE /api/freelancers/{id}
 
-#### Archive Freelancer
-PUT /api/freelancers/{id}/archive
 
-#### Unarchive a Freelancer
-PUT /api/freelancers/{id}/unarchive
+
+
+
