@@ -29,41 +29,51 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 
 ### **Freelancers**
 #### Get All Freelancers
-```http
+http
 GET /api/freelancers
-Retrieves all freelancers along with their skillsets and hobbies.
-Get Freelancer by ID
+
+#### Get Freelancer with ID
 http
-Copy
-Edit
 GET /api/freelancers/{id}
-Retrieves a freelancer's details by their ID, including skillsets and hobbies.
-Search Freelancers (Wildcard)
+
+#### search Freelancer with name of email with wildcard
 http
-Copy
-Edit
 GET /api/freelancers/search?term={searchTerm}
-Searches for freelancers by username or email using a wildcard search.
-Insert Freelancer
-http
-Copy
-Edit
+
+#### Insert  Freelancer
 POST /api/freelancers
-Request Body:
+- request body:
 json
-Copy
-Edit
 {
-  "username": "john_doe_inserted",
+  "username": "john_doe_updated",
   "email": "john_inserted@example.com",
   "phoneNumber": "987-654-3210",
   "skillsets": ["Docker", "Kubernetes"],
   "hobbies": ["Traveling", "Hiking"]
 }
-Update Freelancer
-http
-Copy
-Edit
+json
+
+#### update Freelancer
+PUT /api/freelancers/{id}
+{
+  "username": "john_doe_updated",
+  "email": "john_updated@example.com",
+  "phoneNumber": "987-654-3210",
+  "skillsets": ["Kubernetes"],
+  "hobbies": ["Traveling", "Hiking"]
+}
+json
+
+#### Delete Freelancer
+DELETE /api/freelancers/{id}
+
+#### Archive Freelancer
+PUT /api/freelancers/{id}/archive
+
+#### Unarchive a Freelancer
+PUT /api/freelancers/{id}/unarchive
+
+this one in MD file is not looking good how to fix it
 
 
 
