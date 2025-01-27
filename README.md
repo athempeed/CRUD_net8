@@ -31,14 +31,43 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 #### Get All Freelancers
 ```http
 GET /api/freelancers
+```http
+#### Get Freelancer with ID
+```http
 GET /api/freelancers/{id}
+```http
+#### search Freelancer with name of email with wildcard
 GET /api/freelancers/search?term={searchTerm}
+
+#### Insert  Freelancer
 POST /api/freelancers
+- request body:
+```json
 {
   "username": "john_doe_updated",
-  "email": "john_updated@example.com",
+  "email": "john_inserted@example.com",
   "phoneNumber": "987-654-3210",
   "skillsets": ["Docker", "Kubernetes"],
   "hobbies": ["Traveling", "Hiking"]
 }
+```json
 
+#### update Freelancer
+PUT /api/freelancers/{id}
+{
+  "username": "john_doe_updated",
+  "email": "john_updated@example.com",
+  "phoneNumber": "987-654-3210",
+  "skillsets": ["Kubernetes"],
+  "hobbies": ["Traveling", "Hiking"]
+}
+```json
+
+#### Delete Freelancer
+DELETE /api/freelancers/{id}
+
+#### Archive Freelancer
+PUT /api/freelancers/{id}/archive
+
+#### Unarchive a Freelancer
+PUT /api/freelancers/{id}/unarchive
