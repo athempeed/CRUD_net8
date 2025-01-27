@@ -32,7 +32,7 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 ```http
 GET /api/freelancers
 
-### Get Freelancer with ID
+#### Get Freelancer with ID
 ```http
 GET /api/freelancers/{id}
 
