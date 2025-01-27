@@ -31,12 +31,13 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 #### Get All Freelancers
 ```http
 GET /api/freelancers
-```http
+
 #### Get Freelancer with ID
 ```http
 GET /api/freelancers/{id}
-```http
+
 #### search Freelancer with name of email with wildcard
+```http
 GET /api/freelancers/search?term={searchTerm}
 
 #### Insert  Freelancer
