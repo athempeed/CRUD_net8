@@ -31,3 +31,14 @@ A RESTful API for managing freelancers, their skillsets, and hobbies. This proje
 #### Get All Freelancers
 ```http
 GET /api/freelancers
+GET /api/freelancers/{id}
+GET /api/freelancers/search?term={searchTerm}
+POST /api/freelancers
+{
+  "username": "john_doe_updated",
+  "email": "john_updated@example.com",
+  "phoneNumber": "987-654-3210",
+  "skillsets": ["Docker", "Kubernetes"],
+  "hobbies": ["Traveling", "Hiking"]
+}
+
