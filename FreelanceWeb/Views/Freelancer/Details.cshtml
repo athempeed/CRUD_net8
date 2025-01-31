@@ -1,0 +1,59 @@
+﻿@model Services.Models.FreelancerDTO
+
+
+<h2>Freelancer Details</h2>
+
+<div>
+    <h4>@Model.Username</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+
+        <dt class="col-sm-2">Phone</dt>
+        <dd class="col-sm-10">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-2">Archived</dt>
+        <dd class="col-sm-10">@Model.IsArchived</dd>
+    </dl>
+</div>
+
+<hr />
+
+<h3>Skillsets</h3>
+@if (Model.Skillsets != null && Model.Skillsets.Any())
+{
+    <ul class="list-group">
+        @foreach (var skill in Model.Skillsets)
+        {
+            <li class="list-group-item">@skill</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No skillsets added.</p>
+}
+
+<hr />
+
+<h3>Hobbies</h3>
+@if (Model.Hobbies != null && Model.Hobbies.Any())
+{
+    <ul class="list-group">
+        @foreach (var hobby in Model.Hobbies)
+        {
+            <li class="list-group-item">@hobby</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No hobbies added.</p>
+}
+
+<hr />
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

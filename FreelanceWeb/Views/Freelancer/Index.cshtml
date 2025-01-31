@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Services.Models.Freelancer>
+
+@{
+    ViewData["Title"] = "Freelancers";
+}
+<h2>Freelancers</h2>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Create New Freelancer</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var freelancer in Model)
+        {
+            <tr>
+                <td>@freelancer.Username</td>
+                <td>@freelancer.Email</td>
+                <td>@freelancer.PhoneNumber</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = freelancer.Id })" class="btn btn-info">View</a>
+                    <a href="@Url.Action("Edit", new { id = freelancer.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = freelancer.Id })" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this freelancer?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

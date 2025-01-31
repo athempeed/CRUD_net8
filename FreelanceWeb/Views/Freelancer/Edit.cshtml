@@ -1,0 +1,108 @@
+﻿@model Services.Models.FreelancerDTO
+  
+<h2>Edit Freelancer</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="control-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsArchived" class="control-label"></label>
+        <input asp-for="IsArchived" type="checkbox" class="form-check-input" />
+        <span asp-validation-for="IsArchived" class="text-danger"></span>
+    </div>
+
+    <hr />
+
+    <h3>Skillsets</h3>
+    <div id="skillsets">
+        @for (int i = 0; i < Model.Skillsets.Count; i++)
+        {
+            <div class="input-group mb-2">
+                <input type="text" name="Skillsets[@i]" value="@Model.Skillsets[i]" class="form-control" />
+                <button type="button" class="btn btn-danger remove-skill">Remove</button>
+            </div>
+        }
+    </div>
+    <button type="button" class="btn btn-primary" id="add-skill">Add Skill</button>
+
+    <hr />
+
+    <h3>Hobbies</h3>
+    <div id="hobbies">
+        @for (int i = 0; i < Model.Hobbies.Count; i++)
+        {
+            <div class="input-group mb-2">
+                <input type="text" name="Hobbies[@i]" value="@Model.Hobbies[i]" class="form-control" />
+                <button type="button" class="btn btn-danger remove-hobby">Remove</button>
+            </div>
+        }
+    </div>
+    <button type="button" class="btn btn-primary" id="add-hobby">Add Hobby</button>
+
+    <hr />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Add new skill input
+        document.getElementById("add-skill").addEventListener("click", function () {
+            const container = document.getElementById("skillsets");
+            const index = container.children.length;
+            const inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-2";
+            inputGroup.innerHTML = `
+                <input type="text" name="Skillsets[${index}]" class="form-control" />
+                <button type="button" class="btn btn-danger remove-skill">Remove</button>`;
+            container.appendChild(inputGroup);
+        });
+
+        // Remove skill input
+        document.getElementById("skillsets").addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-skill")) {
+                e.target.parentElement.remove();
+            }
+        });
+
+        // Add new hobby input
+        document.getElementById("add-hobby").addEventListener("click", function () {
+            const container = document.getElementById("hobbies");
+            const index = container.children.length;
+            const inputGroup = document.createElement("div");
+            inputGroup.className = "input-group mb-2";
+            inputGroup.innerHTML = `
+                <input type="text" name="Hobbies[${index}]" class="form-control" />
+                <button type="button" class="btn btn-danger remove-hobby">Remove</button>`;
+            container.appendChild(inputGroup);
+        });
+
+        // Remove hobby input
+        document.getElementById("hobbies").addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-hobby")) {
+                e.target.parentElement.remove();
+            }
+        });
+    </script>
+}

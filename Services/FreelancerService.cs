@@ -89,7 +89,7 @@ namespace Freelance.Services
                     Name = x,
                     FreelancerId = entity.Id
                 });
-            });                      
+            });                  
             _uow.SaveChanges();
 
         }
